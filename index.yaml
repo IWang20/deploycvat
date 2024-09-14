@@ -1,0 +1,261 @@
+apiVersion: v1
+entries:
+  clickhouse:
+  - annotations:
+      category: Database
+      images: |
+        - name: clickhouse
+          image: docker.io/bitnami/clickhouse:23.12.2-debian-11-r0
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r93
+        - name: zookeeper
+          image: docker.io/bitnami/zookeeper:3.8.3-debian-11-r4
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 23.12.2
+    created: "2024-08-17T15:49:00.3129366-07:00"
+    dependencies:
+    - condition: zookeeper.enabled
+      name: zookeeper
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 12.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: ClickHouse is an open-source column-oriented OLAP database management
+      system. Use it to boost your database performance while providing linear scalability
+      and hardware efficiency.
+    digest: ed85b749dfa895e5a21daad3eb5f71ad0603e26aa66608a2bd95dc52d2725573
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/clickhouse/img/clickhouse-stack-220x234.png
+    keywords:
+    - database
+    - sharding
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: clickhouse
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/clickhouse
+    urls:
+    - charts/clickhouse-4.1.16.tgz
+    version: 4.1.16
+  grafana:
+  - annotations:
+      artifacthub.io/license: AGPL-3.0-only
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/grafana/helm-charts
+        - name: Upstream Project
+          url: https://github.com/grafana/grafana
+    apiVersion: v2
+    appVersion: 10.1.5
+    created: "2024-08-17T15:49:00.3231793-07:00"
+    description: The leading tool for querying and visualizing time series and metrics.
+    digest: 2d649a7e824c4318b62bcd1b7e35461cb0215b527cc87e46f5f66aa6e3d06d05
+    home: https://grafana.net
+    icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
+    keywords:
+    - monitoring
+    - metric
+    kubeVersion: ^1.8.0-0
+    maintainers:
+    - email: zanhsieh@gmail.com
+      name: zanhsieh
+    - email: rluckie@cisco.com
+      name: rtluckie
+    - email: maor.friedman@redhat.com
+      name: maorfr
+    - email: miroslav.hadzhiev@gmail.com
+      name: Xtigyro
+    - email: mail@torstenwalter.de
+      name: torstenwalter
+    name: grafana
+    sources:
+    - https://github.com/grafana/grafana
+    - https://github.com/grafana/helm-charts
+    type: application
+    urls:
+    - charts/grafana-6.60.6.tgz
+    version: 6.60.6
+  nuclio:
+  - apiVersion: v1
+    appVersion: 1.13.0
+    created: "2024-08-17T15:49:00.3341204-07:00"
+    description: Serverless for Real-Time and Data-Driven Applications
+    digest: 476c09b5103cc34af682f8993dc11cb28858257afc6cba71bb1276e75fcd188d
+    home: https://nuclio.io
+    icon: https://github.com/nuclio/nuclio/raw/master/docs/assets/images/logo.png
+    maintainers:
+    - email: liranb@iguazio.com
+      name: Liran Ben Gida
+    - email: tomers@iguazio.com
+      name: Tomer Shor
+    name: nuclio
+    sources:
+    - https://github.com/nuclio/nuclio
+    urls:
+    - charts/nuclio-0.19.0.tgz
+    version: 0.19.0
+  postgresql:
+  - annotations:
+      category: Database
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 15.2.0
+    created: "2024-08-17T15:49:00.3488382-07:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: PostgreSQL (Postgres) is an open source object-relational database
+      known for reliability and data integrity. ACID-compliant, it supports foreign
+      keys, joins, views, triggers and stored procedures.
+    digest: 91b472ac9d855bfba4ab973a577074a638c17d74eccb4dcaa5a7d7924cec7b92
+    home: https://github.com/bitnami/charts/tree/main/bitnami/postgresql
+    icon: https://bitnami.com/assets/stacks/postgresql/img/postgresql-stack-220x234.png
+    keywords:
+    - postgresql
+    - postgres
+    - database
+    - sql
+    - replication
+    - cluster
+    maintainers:
+    - name: Bitnami
+      url: https://github.com/bitnami/charts
+    name: postgresql
+    sources:
+    - https://github.com/bitnami/containers/tree/main/bitnami/postgresql
+    - https://www.postgresql.org/
+    urls:
+    - charts/postgresql-12.1.15.tgz
+    version: 12.1.15
+  redis:
+  - annotations:
+      category: Database
+      images: |
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:11-debian-11-r91
+        - name: redis-exporter
+          image: docker.io/bitnami/redis-exporter:1.55.0-debian-11-r2
+        - name: redis-sentinel
+          image: docker.io/bitnami/redis-sentinel:7.2.3-debian-11-r1
+        - name: redis
+          image: docker.io/bitnami/redis:7.2.3-debian-11-r1
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 7.2.3
+    created: "2024-08-17T15:49:00.3619655-07:00"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Redis(R) is an open source, advanced key-value store. It is often
+      referred to as a data structure server since keys can contain strings, hashes,
+      lists, sets and sorted sets.
+    digest: 61d77d276e2c90f730a3cf884cfff822a5da21133e6f439b50bf9f64ea3a5891
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/redis/img/redis-stack-220x234.png
+    keywords:
+    - redis
+    - keyvalue
+    - database
+    maintainers:
+    - name: VMware, Inc.
+      url: https://github.com/bitnami/charts
+    name: redis
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/redis
+    urls:
+    - charts/redis-18.5.0.tgz
+    version: 18.5.0
+  traefik:
+  - annotations:
+      artifacthub.io/changes: "- \"feat: ✨ add healthcheck ingressRoute\"\n- \"feat:
+        :boom: support http redirections and http challenges with cert-manager\"\n-
+        \"feat: :boom: rework and allow update of namespace policy for Gateway\"\n-
+        \"fix: disable ClusterRole and ClusterRoleBinding when not needed\"\n- \"fix:
+        detect correctly v3 version when using sha in `image.tag`\"\n- \"fix: allow
+        updateStrategy.rollingUpdate.maxUnavailable to be passed in as an int or string\"\n-
+        \"fix: add missing separator in crds\"\n- \"fix: add Prometheus scraping annotations
+        only if serviceMonitor not created\"\n- \"docs: Fix typo in the default values
+        file\"\n- \"chore: remove label whitespace at TLSOption\"\n- \"chore(release):
+        \U0001F680 publish v25.0.0\"\n- \"chore(deps): update traefik docker tag to
+        v2.10.5\"\n- \"chore(deps): update docker.io/helmunittest/helm-unittest docker
+        tag to v3.12.3\"\n- \"chore(ci): \U0001F527 \U0001F477 add e2e test when releasing\"\n"
+    apiVersion: v2
+    appVersion: v2.10.5
+    created: "2024-08-17T15:49:00.3760847-07:00"
+    description: A Traefik based Kubernetes ingress controller
+    digest: 79624b04ba57be3510a9f11780c79bfddb0927a1f0a9443cfdf83b7526a1dc9a
+    home: https://traefik.io/
+    icon: https://raw.githubusercontent.com/traefik/traefik/v2.3/docs/content/assets/img/traefik.logo.png
+    keywords:
+    - traefik
+    - ingress
+    - networking
+    kubeVersion: '>=1.16.0-0'
+    maintainers:
+    - email: emile@vauge.com
+      name: emilevauge
+    - email: daniel.tomcej@gmail.com
+      name: dtomcej
+    - email: ldez@traefik.io
+      name: ldez
+    - email: michel.loiseleur@traefik.io
+      name: mloiseleur
+    - email: charlie.haley@traefik.io
+      name: charlie-haley
+    name: traefik
+    sources:
+    - https://github.com/traefik/traefik
+    - https://github.com/traefik/traefik-helm-chart
+    type: application
+    urls:
+    - charts/traefik-25.0.0.tgz
+    version: 25.0.0
+  vector:
+  - annotations:
+      artifacthub.io/images: |
+        - name: vector
+          image: timberio/vector:0.27.1-distroless-libc
+        - name: haproxy
+          image: haproxytech/haproxy-alpine:2.4.17
+      artifacthub.io/license: MPL-2.0
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/vectordotdev/helm-charts
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 0.27.1-distroless-libc
+    created: "2024-08-17T15:49:00.3865152-07:00"
+    description: A lightweight, ultra-fast tool for building observability pipelines
+    digest: a2ec56c1c734e5ddc0ed7860c74825c84564628973bc7d3b0c0b5562efe65157
+    home: https://vector.dev/
+    icon: https://vector.dev/press/vector-icon.svg
+    keywords:
+    - vector
+    - events
+    - logs
+    - metrics
+    - observability
+    - stream-processing
+    kubeVersion: '>=1.15.0-0'
+    maintainers:
+    - email: vector@datadoghq.com
+      name: Datadog
+    name: vector
+    sources:
+    - https://github.com/vectordotdev/vector/
+    type: application
+    urls:
+    - charts/vector-0.19.2.tgz
+    version: 0.19.2
+generated: "2024-08-17T15:49:00.2884742-07:00"
